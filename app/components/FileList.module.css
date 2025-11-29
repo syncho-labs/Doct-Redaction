@@ -1,0 +1,225 @@
+.fileListContainer {
+  margin: 1.5rem 0;
+  width: 100%;
+}
+
+.fileListHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+  padding: 0 0.25rem;
+}
+
+.fileListHeader h3 {
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: hsl(215, 20%, 30%);
+  margin: 0;
+}
+
+.hint {
+  font-size: 0.8125rem;
+  color: hsl(215, 15%, 55%);
+  margin: 0;
+}
+
+.fileList {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.625rem;
+}
+
+.fileItem {
+  display: flex;
+  align-items: center;
+  gap: 0.875rem;
+  padding: 1rem 1.125rem;
+  background: hsl(0, 0%, 100%);
+  border: 1px solid hsl(0, 0%, 85%);
+  border-radius: 10px;
+  cursor: grab;
+  transition: all 0.15s ease;
+  position: relative;
+}
+
+.fileItem:hover {
+  background: hsl(0, 0%, 98%);
+  border-color: hsl(0, 0%, 70%);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
+}
+
+.fileItem:active {
+  cursor: grabbing;
+}
+
+.fileItem.dragging {
+  opacity: 0.5;
+  cursor: grabbing;
+  background: hsl(0, 0%, 96%);
+}
+
+.fileItem.dragOver {
+  border: 2px solid hsl(0, 0%, 0%);
+  background: hsl(0, 0%, 97%);
+}
+
+.dragHandle {
+  display: flex;
+  align-items: center;
+  color: hsl(0, 0%, 0%);
+  cursor: grab;
+  flex-shrink: 0;
+}
+
+.fileItem:active .dragHandle {
+  cursor: grabbing;
+}
+
+.fileNumber {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 30px;
+  height: 30px;
+  background: transparent;
+  color: hsl(0, 0%, 0%);
+  border: 1px solid hsl(0, 0%, 0%);
+  border-radius: 50%;
+  font-weight: 600;
+  font-size: 0.8125rem;
+  flex-shrink: 0;
+}
+
+.fileInfo {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+}
+
+.fileName {
+  font-weight: 500;
+  color: hsl(0, 0%, 0%);
+  font-size: 0.9rem;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.fileSize {
+  font-size: 0.75rem;
+  color: hsl(0, 0%, 0%);
+}
+
+.removeButton {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 30px;
+  height: 30px;
+  background: transparent;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  color: hsl(0, 0%, 0%);
+  transition: all 0.15s ease;
+  flex-shrink: 0;
+  padding: 0;
+}
+
+.removeButton:hover {
+  background: hsl(0, 0%, 92%);
+  color: hsl(0, 0%, 0%);
+}
+
+.removeButton:active {
+  transform: scale(0.94);
+}
+
+.downloadButton {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  padding: 8px 16px;
+  background: linear-gradient(135deg, #004B87, #0066B3);
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  color: white;
+  font-weight: 600;
+  font-size: 0.875rem;
+  transition: all 0.15s ease;
+  flex-shrink: 0;
+  box-shadow: 0 2px 8px rgba(0, 75, 135, 0.3);
+}
+
+.downloadButton:hover {
+  box-shadow: 0 4px 12px rgba(0, 75, 135, 0.5);
+  transform: translateY(-1px);
+}
+
+.downloadButton:active {
+  transform: translateY(0);
+}
+
+/* Dark mode support */
+@media (prefers-color-scheme: dark) {
+  .fileListHeader h3 {
+    color: hsl(0, 0%, 90%);
+  }
+
+  .hint {
+    color: hsl(215, 15%, 65%);
+  }
+
+  .fileItem {
+    background: hsl(222, 15%, 83%);
+    border-color: hsl(220, 15%, 25%);
+  }
+
+  .fileItem:hover {
+    background: hsl(180, 8%, 77%);
+    border-color: hsl(220, 15%, 30%);
+  }
+
+  .fileItem.dragging {
+    background: hsl(216, 26%, 96%);
+  }
+
+  .fileItem.dragOver {
+    background: hsl(217, 75%, 22%);
+    border-color: hsl(217, 75%, 45%);
+  }
+
+  .fileNumber {
+    background: hsl(216, 20%, 90%);
+    color: hsl(220, 9%, 6%);
+  }
+
+  .fileName {
+    color: hsl(0, 12%, 7%);
+  }
+
+  .fileSize {
+    color: hsl(180, 6%, 3%);
+  }
+
+  .dragHandle {
+    color: hsl(210, 13%, 3%);
+  }
+
+  .removeButton {
+    color: hsl(210, 8%, 5%);
+  }
+
+  .removeButton:hover {
+    background: hsl(0, 60%, 25%);
+    color: hsl(0, 60%, 60%);
+  }
+}
